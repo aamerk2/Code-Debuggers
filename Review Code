@@ -1,0 +1,62 @@
+package datamanagement;
+
+public class Student implements IStudent {
+    private Integer id; //declare student id as integer
+    private String fn;  // Declare student first name as string
+    private String ln;  // Declare student last name as string
+private StudentUnitRecordList su;
+
+public Student( Integer id, String fn, String ln, StudentUnitRecordList su ) 
+{
+	this.id = id; 
+	this.fn = fn;
+    this.ln = ln;
+    this.su = 
+        su == null ? new StudentUnitRecordList() : 
+                su;
+}
+
+    public Integer getID() 
+    {
+    	return this.id; // function returns id as output
+} 
+    public String getFirstName() 
+    { 
+          return fn; // returns first name as output
+          }
+
+    public void setFirstName( String firstName )
+    { 
+    this.fn = firstName; // set frist name 
+    }
+
+public String getLastName()
+{ 
+    return ln; // returns last name as output
+    }
+    public void setLastName( String lastName )
+    { 
+
+        
+    this.ln = lastName; // set last name
+    }
+
+public void addUnitRecord( IStudentUnitRecord record )
+{
+	su.add(record); // run addrecord function
+	}
+        public IStudentUnitRecord getUnitRecord( String unitCode )
+        {
+                    for ( IStudentUnitRecord r : su ) 
+            if ( r.getUnitCode().equals(unitCode)) 
+return r; 
+
+return null;
+        
+}
+
+public StudentUnitRecordList getUnitRecords()
+{
+	return su;
+	}
+}
