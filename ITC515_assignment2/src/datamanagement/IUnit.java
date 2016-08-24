@@ -1,6 +1,7 @@
 package datamanagement;
 
-public interface IUnit {
+public interface IUnit
+{
 
     public String getUnitCode();
     public String getUnitName();

@@ -1,8 +1,9 @@
 package datamanagement;
 
-public interface IStudent {
+public interface IStudent
+{
 
-    public Integer getID();//Method getId which returns integer value
+    public Integer getID();      //Method getId which returns integer value
 
     public String getFirstName();//Method getFirstName which returns String value
     public void setFirstName(String firstName);//Method setFirstName which dosen't return any value but takes firstName as input parameter
