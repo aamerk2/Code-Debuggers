@@ -1,8 +1,7 @@
-package datamanagement;
+package datamanagement;       //All classes are under package named datamanagement
 
-public class cgCTL
-{
-
+public class cgCTL                               //create Class named cgCTL (checkGrade)
+{ 
 	cgUI CGUI;
 	String cuc = null;
 	Integer currentStudentID = null;
@@ -13,9 +12,9 @@ public class cgCTL
 		
 	}
 
-	public void execute()
+	public void execute()                             //creating method named 'execute'
 	{		
-		CGUI = new cgUI(this);
+		CGUI = new cgUI(this);                        
 		CGUI.setState1(false);
 
 		CGUI.setState2(false);
@@ -27,16 +26,19 @@ public class cgCTL
 
 		ListUnitsCTL luCTL = new ListUnitsCTL();
 		luCTL.listUnits(CGUI);
-		CGUI.setVisible(true);
-		CGUI.setState1(true);
+		CGUI.setVisible(true);                              //make 'unit list' visible
+		CGUI.setState1(true);                                 // make 'unit list' to select from 
 	}
 
 	public void unitSelected(String code)
 	{
 
+		//Choosing name of students from list
+		
 		if (code.equals("NONE"))
 			CGUI.setState2(false);
-		else {
+		else
+		{
 			ListStudentsCTL lsCTL = new ListStudentsCTL();
 			lsCTL.listStudents(CGUI, code);
 			cuc = code;
@@ -48,6 +50,7 @@ public class cgCTL
 	public void studentSelected(Integer id)
 	{
 		currentStudentID = id;
+		
 		if (currentStudentID.intValue() == 0)
 		{
 			CGUI.Refresh3();
