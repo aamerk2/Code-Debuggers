@@ -1,20 +1,20 @@
-package datamanagement;
+package datamanagement;       //All classes are under package named datamanagement
 
-public class cgCTL 
-{
+public class cgCTL                               //create Class named cgCTL (checkGrade)
+{ 
 	cgUI CGUI;
 	String cuc = null;
 	Integer currentStudentID = null;
 	boolean changed = false;
 
-	public cgCTL() 
+	public cgCTL()
 	{
 		
 	}
 
-	public void execute() 
-	{
-		CGUI = new cgUI(this);
+	public void execute()                             //creating method named 'execute'
+	{		
+		CGUI = new cgUI(this);                        
 		CGUI.setState1(false);
 
 		CGUI.setState2(false);
@@ -26,16 +26,19 @@ public class cgCTL
 
 		ListUnitsCTL luCTL = new ListUnitsCTL();
 		luCTL.listUnits(CGUI);
-		CGUI.setVisible(true);
-		CGUI.setState1(true);
+		CGUI.setVisible(true);                              //make 'unit list' visible
+		CGUI.setState1(true);                                 // make 'unit list' to select from 
 	}
 
-	public void unitSelected(String code) 
+	public void unitSelected(String code)
 	{
 
+		//Choosing name of students from list
+		
 		if (code.equals("NONE"))
 			CGUI.setState2(false);
-		else {
+		else
+		{
 			ListStudentsCTL lsCTL = new ListStudentsCTL();
 			lsCTL.listStudents(CGUI, code);
 			cuc = code;
@@ -44,10 +47,11 @@ public class cgCTL
 		CGUI.setState3(false);
 	}
 
-	public void studentSelected(Integer id) 
+	public void studentSelected(Integer id)
 	{
 		currentStudentID = id;
-		if (currentStudentID.intValue() == 0) 
+		
+		if (currentStudentID.intValue() == 0)
 		{
 			CGUI.Refresh3();
 			CGUI.setState3(false);
@@ -56,7 +60,8 @@ public class cgCTL
 			CGUI.setState6(false);
 		}
 
-		else {
+		else
+		{
 			IStudent s = StudentManager.get().getStudent(id);
 
 			IStudentUnitRecord r = s.getUnitRecord(cuc);
@@ -71,19 +76,21 @@ public class cgCTL
 		}
 	}
 
-	public String checkGrade(float f, float g, float h) 
+	public String checkGrade(float f, float g, float h)
 	{
 		IUnit u = UnitManager.UM().getUnit(cuc);
 		String s = u.getGrade(f, g, h);
 		CGUI.setState4(true);
 		CGUI.setState5(false);
-		if (changed) {
+		
+		if (changed)
+		{
 			CGUI.setState6(true);
 		}
 		return s;
 	}
 
-	public void enableChangeMarks() 
+	public void enableChangeMarks()
 	{
 		CGUI.setState4(false);
 		CGUI.setState6(false);
@@ -91,7 +98,7 @@ public class cgCTL
 		changed = true;
 	}
 
-	public void saveGrade(float asg1, float asg2, float exam) 
+	public void saveGrade(float asg1, float asg2, float exam)
 	{
 
 		IUnit u = UnitManager.UM().getUnit(cuc);
