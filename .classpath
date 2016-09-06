@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="ITC515_assignment2/src"/>
+	<classpathentry kind="lib" path="ITC515_assignment2/lib/HttpPOST.jar"/>
+	<classpathentry kind="lib" path="ITC515_assignment2/lib/jdom.jar"/>
+	<classpathentry kind="lib" path="ITC515_assignment2/lib/postgresql-9.2-1000.jdbc4.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
