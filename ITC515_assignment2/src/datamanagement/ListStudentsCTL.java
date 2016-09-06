@@ -2,7 +2,9 @@ package datamanagement;
         public class ListStudentsCTL
         {
    private StudentManager sm;
-   public ListStudentsCTL() {sm = StudentManager.get();
+   public ListStudentsCTL() 
+   {
+	   sm = StudentManager.get();
  }
    public void listStudents( IStudentLister lister, String unitCode )
  {
