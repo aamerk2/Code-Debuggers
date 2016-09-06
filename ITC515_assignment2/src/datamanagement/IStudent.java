@@ -8,8 +8,8 @@ public interface IStudent
     public String getFirstName();                       //Method getFirstName which returns string value
     public void setFirstName(String firstName);
 
-    public String getLastName();
-    public void setLastName(String lastName);
+    public String getLastName();             //Method for getting last name which returns string value
+    public void setLastName(String lastName); 
 
     public void addUnitRecord( IStudentUnitRecord record );
     public IStudentUnitRecord getUnitRecord( String unitCode );

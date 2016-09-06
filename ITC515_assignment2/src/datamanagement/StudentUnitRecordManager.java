@@ -3,23 +3,30 @@ package datamanagement;
 import java.util.List;
 import org.jdom.*;
 
-public class StudentUnitRecordManager {
-
+public class StudentUnitRecordManager
+{
 private static StudentUnitRecordManager s = null;
             private StudentUnitRecordMap rm;
     private java.util.HashMap<String,StudentUnitRecordList> ur;
 private java.util.HashMap<Integer,StudentUnitRecordList> sr;
-    public static StudentUnitRecordManager instance() {
-        if (s == null ) s = new StudentUnitRecordManager(); return s;}
-            private StudentUnitRecordManager() {
+    public static StudentUnitRecordManager instance()
+    {
+        if (s == null ) s = new StudentUnitRecordManager(); return s;
+        }
+            private StudentUnitRecordManager()
+            {
         rm = new StudentUnitRecordMap();
     ur = new java.util.HashMap<>();
-    sr = new java.util.HashMap<>();}
-    public IStudentUnitRecord getStudentUnitRecord( Integer studentID, String unitCode ) {
+    sr = new java.util.HashMap<>();
+    }
+    public IStudentUnitRecord getStudentUnitRecord( Integer studentID, String unitCode )
+    {
 IStudentUnitRecord ir = rm.get(studentID.toString()+unitCode);
-return ir != null ? ir : createStudentUnitRecord(studentID, unitCode);}
+return ir != null ? ir : createStudentUnitRecord(studentID, unitCode);
+}
 
-    private IStudentUnitRecord createStudentUnitRecord( Integer uid, String sid ) {
+    private IStudentUnitRecord createStudentUnitRecord( Integer uid, String sid )
+    {
         IStudentUnitRecord ir;
         for (Element el : (List<Element>) XMLManager.getXML().getDocument().getRootElement().getChild("studentUnitRecordTable").getChildren("record")) {
         if (uid.toString().equals(el.getAttributeValue("sid")) && sid.equals(el.getAttributeValue("uid"))) {
@@ -27,8 +34,10 @@ return ir != null ? ir : createStudentUnitRecord(studentID, unitCode);}
                rm.put(ir.getStudentID().toString()+ir.getUnitCode(), ir);return ir;
 }
 }
-throw new RuntimeException("DBMD: createStudent : student unit record not in file");}
-        public StudentUnitRecordList getRecordsByUnit( String unitCode ) {
+throw new RuntimeException("DBMD: createStudent : student unit record not in file");
+}
+        public StudentUnitRecordList getRecordsByUnit( String unitCode )
+        {
     StudentUnitRecordList recs = ur.get(unitCode);
     if ( recs != null ) return recs; 
         recs = new StudentUnitRecordList();
@@ -40,7 +49,8 @@ throw new RuntimeException("DBMD: createStudent : student unit record not in fil
             return recs;
         }
 
-public StudentUnitRecordList getRecordsByStudent( Integer studentID ) {
+public StudentUnitRecordList getRecordsByStudent( Integer studentID )
+{
     StudentUnitRecordList recs = sr.get(studentID);
     if ( recs != null ) return recs; recs = new StudentUnitRecordList();
         for (Element el : (List<Element>) XMLManager.getXML().getDocument().getRootElement().getChild("studentUnitRecordTable").getChildren("record")) 
@@ -51,7 +61,8 @@ public StudentUnitRecordList getRecordsByStudent( Integer studentID ) {
                         return recs;
     }
 
-    public void saveRecord( IStudentUnitRecord irec ) {
+    public void saveRecord( IStudentUnitRecord irec )
+    {
         for (Element el : (List<Element>) XMLManager.getXML().getDocument().getRootElement().getChild("studentUnitRecordTable").getChildren("record")) {
             if (irec.getStudentID().toString().equals(el.getAttributeValue("sid")) && irec.getUnitCode().equals(el.getAttributeValue("uid"))) {
                 el.setAttribute("asg1", new Float(irec.getAsg1()).toString());

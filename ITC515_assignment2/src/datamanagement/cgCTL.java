@@ -14,7 +14,7 @@ public class cgCTL                               //create Class named cgCTL (che
 
 	public void execute()                             //creating method named 'execute'
 	{		
-		CGUI = new cgUI(this);                        
+		CGUI = new cgUI(this);                           //Create object for class CGUI
 		CGUI.setState1(false);
 
 		CGUI.setState2(false);
@@ -24,7 +24,7 @@ public class cgCTL                               //create Class named cgCTL (che
 		CGUI.setState6(false);
 		CGUI.Refresh3();
 
-		ListUnitsCTL luCTL = new ListUnitsCTL();
+		ListUnitsCTL luCTL = new ListUnitsCTL();          // create object for class 'ListUnitCTL'
 		luCTL.listUnits(CGUI);
 		CGUI.setVisible(true);                              //make 'unit list' visible
 		CGUI.setState1(true);                                 // make 'unit list' to select from 
@@ -49,7 +49,7 @@ public class cgCTL                               //create Class named cgCTL (che
 
 	public void studentSelected(Integer id)
 	{
-		currentStudentID = id;
+		currentStudentID = id;                             //choosing student ID
 		
 		if (currentStudentID.intValue() == 0)
 		{
@@ -94,10 +94,12 @@ public class cgCTL                               //create Class named cgCTL (che
 	{
 		CGUI.setState4(false);
 		CGUI.setState6(false);
-		CGUI.setState5(true);
+		CGUI.setState5(true);               //enabling marks changes true 
 		changed = true;
 	}
 
+	// Saving the changed marks
+	
 	public void saveGrade(float asg1, float asg2, float exam)
 	{
 
