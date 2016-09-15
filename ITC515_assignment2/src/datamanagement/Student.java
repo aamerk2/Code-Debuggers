@@ -1,9 +1,9 @@
 package datamanagement;
 
 public class Student implements IStudent {
-	private Integer id;
-	private String fn;
-	private String ln;
+	private Integer id; // id of integer type
+	private String fn;// fn of String type
+	private String ln; // lnof String type
 	private StudentUnitRecordList su;
 
 	public Student(Integer id, String fn, String ln, StudentUnitRecordList su) {
