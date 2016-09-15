@@ -4,7 +4,7 @@ public class Student implements IStudent {
 	private Integer id; // id of integer type
 	private String fn;// fn of String type
 	private String ln; // lnof String type
-	private StudentUnitRecordList su;
+	private StudentUnitRecordList su;//su of type StudentUnitrecordList property
 
 	public Student(Integer id, String fn, String ln, StudentUnitRecordList su) {
 		this.id = id;
@@ -13,15 +13,15 @@ public class Student implements IStudent {
 		this.su = su == null ? new StudentUnitRecordList() : su;
 	}
 
-	public Integer getID() {
+	public Integer getID() { // Property getID
 		return this.id;
 	}
 
-	public String getFirstName() {
+	public String getFirstName() { // Property getFirstName
 		return fn;
 	}
 
-	public void setFirstName(String firstName) {
+	public void setFirstName(String firstName) { // Property setFirstName
 		this.fn = firstName;
 	}
 
