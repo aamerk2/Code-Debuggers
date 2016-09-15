@@ -8,6 +8,7 @@ public class cgCTL {
 	boolean changed = false;
 
 	public cgCTL() {
+
 	}
 
 	public void execute() {
@@ -70,6 +71,7 @@ public class cgCTL {
 		String s = u.getGrade(f, g, h);
 		CGUI.setState4(true);
 		CGUI.setState5(false);
+
 		if (changed) {
 			CGUI.setState6(true);
 		}

@@ -1,0 +1,33 @@
+package datamanagement;
+
+public interface IUnit {
+
+    public String getUnitCode(); // Declare function to enter unit code
+    public String getUnitName();  // Declare function to enter unit name
+
+    public float getPsCutoff();  // Declare function to enter pass cut off
+    public void  setPsCutoff1(float cutoff);
+
+    public float getCrCutoff();  // Declare function to enter cr cut off
+    public void  setCrCutoff(float cutoff);
+
+    public float getDiCuttoff();    // Declare function to enter dstinction cut off
+    public void  setDiCutoff(float cutoff);
+
+    public float getHdCutoff();      //Declare function to enter HD cut off
+    public void  setHdCutoff(float cutoff);    
+
+    public float getAeCutoff();     //Declare function to enter Additional Exam Cut off
+    public void  setAeCutoff(float cutoff);
+    
+    public int getAsg1Weight();        //Declare function to enter assisgnment1 weight
+    public int getAsg2Weight();        // Declare function to enter assisgnment2 weight
+    public int getExamWeight();         // Declare function to enter exam weight
+    public void setAssessmentWeights(int asg1Wgt, int asg2Wgt, int examWgt);
+
+    public String getGrade(float asg1, float asg2, float exam);  // Declare function to enter grade
+    public void addStudentRecord(IStudentUnitRecord record );
+    public IStudentUnitRecord getStudentRecord(int studentID );
+    
+    public StudentUnitRecordList listStudentRecords();
+}
